@@ -46,10 +46,15 @@ const buildCJS = async () => {
 
 try {
     await $`rm -rf lib`
+
     await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/esm`
     await buildESM()
+
     await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/cjs`
     await buildCJS()
+
+    await $`cp tsconfig.json lib/.`
+
     console.log(chalk.green('Overall compilation successful'))
 } catch (error) {
     console.error(chalk.red('Overall compilation failed:'), chalk.red(error))

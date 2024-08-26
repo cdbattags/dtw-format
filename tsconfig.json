@@ -20,7 +20,10 @@
     "target": "esnext",
 
     /* Bundled projects */
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom",
+    ],
     "module": "esnext",
     "moduleResolution": "bundler",
     "incremental": true,
@@ -28,14 +31,19 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*",
+      ],
     },
 
     /* Out */
     "outDir": "dist",
 
     /* Types */
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types",
+    ],
   },
   "include": [
     "src/**/*.ts",
@@ -43,7 +51,7 @@
     "src/**/*.cjs",
     "src/**/*.js",
     "src/**/*.mjs",
-    "test/**/*.ts"
+    "test/**/*.ts",
   ],
   "exclude": [
     "node_modules",
