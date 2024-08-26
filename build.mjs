@@ -53,7 +53,7 @@ try {
     await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/cjs`
     await buildCJS()
 
-    await $`cp tsconfig.json lib/.`
+    await $`cp tsconfig.dtw.json lib/.`
 
     console.log(chalk.green('Overall compilation successful'))
 } catch (error) {
