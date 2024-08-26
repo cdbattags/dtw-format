@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["lib/**/*.js"],
-  "compilerOptions": {
-    "sourceMap": true,
-    "declaration": true
-  }
-}

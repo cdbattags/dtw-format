@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Strictness */
+    "alwaysStrict": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "checkJs": true,
+    "strictNullChecks": true,
+
+    /* Target */
+    "target": "esnext",
+
+    /* Bundled projects */
+    "lib": [
+      "esnext",
+      "dom",
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "incremental": true,
+
+    /* Types */
+    "typeRoots": [
+      "node_modules/@types",
+      "@types",
+    ],
+  },
+  "exclude": [
+    "node_modules",
+  ],
+}
