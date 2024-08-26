@@ -1,15 +1,6 @@
 import type { Linter } from 'eslint'
 
-import drizzleRules from '@/rules/drizzle'
-import eslintRules from '@/rules/eslint'
-import importRules from '@/rules/import'
-import jsxA11yRules from '@/rules/jsx-a11y'
-import noSmartQuotesRules from '@/rules/no-smart-quotes'
-import reactRules from '@/rules/react'
-import stylisticRules from '@/rules/stylistic'
-import typescriptEslintRules from '@/rules/typescript-eslint'
-import unicornRules from '@/rules/unicorn'
-import unusedImportsRules from '@/rules/unused-imports'
+import rules from '@/rules'
 
 const config: Linter.Config = {
   parser: `@typescript-eslint/parser`,
@@ -47,18 +38,7 @@ const config: Linter.Config = {
     `plugin:editorconfig/noconflict`,
     `plugin:prettier/recommended`,
   ],
-  rules: {
-    ...drizzleRules,
-    ...eslintRules,
-    ...importRules,
-    ...jsxA11yRules,
-    ...noSmartQuotesRules,
-    ...reactRules,
-    ...stylisticRules,
-    ...typescriptEslintRules,
-    ...unicornRules,
-    ...unusedImportsRules,
-  },
+  rules,
   ignorePatterns: [`prettier.config.js`, `.eslintrc.cjs`, `build.mjs`],
 }
 

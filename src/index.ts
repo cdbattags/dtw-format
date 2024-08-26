@@ -2,7 +2,7 @@ import type { ESLint } from 'eslint'
 
 const plugin: ESLint.Plugin = {
   meta: {
-    name: `eslint-plugin-dtw`,
+    name: `@dtw/format`,
     version: `0.0.1`,
   },
   configs: {},
