@@ -46,6 +46,7 @@ const buildCJS = async () => {
 
 try {
     await $`rm -rf lib`
+    console.log(chalk.green('Deleted all content in lib'))
 
     await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/esm`
     await buildESM()
@@ -54,6 +55,12 @@ try {
     await buildCJS()
 
     await $`cp tsconfig.dtw.json lib/.`
+    console.log(chalk.green('Copied tsconfig to lib'))
+
+    await $`cp -r to-copy lib/.`
+    await $`cp -r .vscode lib/to-copy/.`
+    await $`cp .editorconfig lib/to-copy/.`
+    await $`cp tsconfig.json lib/to-copy/.`
 
     console.log(chalk.green('Overall compilation successful'))
 } catch (error) {

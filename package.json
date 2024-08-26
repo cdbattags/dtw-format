@@ -1,10 +1,11 @@
 {
   "name": "@dtw/format",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "files": [
     "/lib"
   ],
+  "bin": "./bin.mjs",
   "exports": {
     ".": {
       "require": {
@@ -36,6 +37,9 @@
   "scripts": {
     "build": "zx ./build.mjs"
   },
+  "dependencies": {
+    "zx": "^8.1.4"
+  },
   "devDependencies": {
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.6",
@@ -44,8 +48,7 @@
     "esbuild": "^0.23.0",
     "fast-glob": "^3.3.2",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.4",
-    "zx": "^8.1.4"
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin-ts": "^2.6.1",
