@@ -1,0 +1,10 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.format.enable": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    "*.tsx": "typescriptreact"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+}

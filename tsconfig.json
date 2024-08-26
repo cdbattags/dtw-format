@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Strictness */
+    "alwaysStrict": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "checkJs": true,
+    "strictNullChecks": true,
+
+    /* Target */
+    "target": "esnext",
+
+    /* Bundled projects */
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "incremental": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Out */
+    "outDir": "dist",
+
+    /* Types */
+    "typeRoots": ["./node_modules/@types", "./@types"],
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.cjs",
+    "src/**/*.js",
+    "src/**/*.mjs",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+  ],
+}

@@ -1,33 +1,13 @@
-const plugin = {
-    meta: {
-        name: "eslint-plugin-dtw",
-        version: "0.0.1"
-    },
-    configs: {},
-    rules: {},
-};
+import type { ESLint } from 'eslint'
 
-// assign configs here so we can reference `plugin`
-Object.assign(plugin.configs, {
-    recommended: [{
-        plugins: {
-            example: plugin
-        },
-        rules: {
-            "example/dollar-sign": "error"
-        },
-        languageOptions: {
-            globals: {
-                myGlobal: "readonly"
-            },
-            parserOptions: {
-                ecmaFeatures: {
-                    jsx: true
-                }
-            }
-        }
-    }]
-});
+const plugin: ESLint.Plugin = {
+  meta: {
+    name: `eslint-plugin-dtw`,
+    version: `0.0.1`,
+  },
+  configs: {},
+  rules: {},
+}
 
 // for ESM
-export default plugin;
+export default plugin
