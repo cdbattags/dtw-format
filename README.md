@@ -7,3 +7,23 @@ The purpose of this repository is to have a single source of truth for all JavaS
 - [EditorConfig](https://editorconfig.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+
+## how to configure
+
+.eslintrc.cjs
+
+```ts
+const config = require('@dtw/format/cjs/config.js').default
+
+module.exports = config
+```
+
+prettier.config.js
+
+```ts
+import config from '@dtw/format/esm/prettier/index.js'
+
+export default config
+```
+
+
