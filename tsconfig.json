@@ -32,7 +32,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*",
+        "src/*",
       ],
     },
 
@@ -41,8 +41,8 @@
 
     /* Types */
     "typeRoots": [
-      "./node_modules/@types",
-      "./@types",
+      "node_modules/@types",
+      "@types",
     ],
   },
   "include": [
