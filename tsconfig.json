@@ -10,8 +10,6 @@
         "../*",
       ],
     },
-
-    "outDir": "dist",
   },
   "include": [
     "src/**/*.ts",
@@ -20,5 +18,7 @@
     "src/**/*.js",
     "src/**/*.mjs",
     "test/**/*.ts",
+    "bin/**/*.ts",
+    "build/**/*.ts",
   ],
 }

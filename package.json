@@ -1,54 +1,55 @@
 {
   "name": "@dtw/format",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "files": [
     "/lib"
   ],
-  "bin": "./bin.mjs",
+  "bin": "./lib/esm/bin/index.js",
   "exports": {
     ".": {
       "require": {
-        "default": "./lib/cjs/index.js",
-        "types": "./lib/cjs/index.d.ts"
+        "default": "./lib/cjs/src/index.js",
+        "types": "./lib/cjs/src/index.d.ts"
       },
       "import": {
-        "default": "./lib/esm/index.js",
-        "types": "./lib/esm/index.d.ts"
+        "default": "./lib/esm/src/index.js",
+        "types": "./lib/esm/src/index.d.ts"
       }
     },
     "./config": {
       "require": {
-        "default": "./lib/cjs/config.js"
+        "default": "./lib/cjs/src/config.js"
       },
       "import": {
-        "default": "./lib/esm/config.js"
+        "default": "./lib/esm/src/config.js"
       }
     },
     "./prettier": {
       "require": {
-        "default": "./lib/cjs/prettier/index.js"
+        "default": "./lib/cjs/src/prettier/index.js"
       },
       "import": {
-        "default": "./lib/esm/prettier/index.js"
+        "default": "./lib/esm/src/prettier/index.js"
       }
     }
   },
   "scripts": {
-    "build": "zx ./build.mjs"
-  },
-  "dependencies": {
-    "zx": "^8.1.4"
+    "build": "tsx ./build/index.ts"
   },
   "devDependencies": {
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.6",
     "@types/eslint": "^8.56.10",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^22.1.0",
     "esbuild": "^0.23.0",
+    "esbuild-node-externals": "^1.14.0",
     "fast-glob": "^3.3.2",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.4"
+    "tsx": "^4.18.0",
+    "typescript": "^5.5.4",
+    "zx": "^8.1.4"
   },
   "peerDependencies": {
     "@stylistic/eslint-plugin-ts": "^2.6.1",

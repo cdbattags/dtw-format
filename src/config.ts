@@ -39,7 +39,7 @@ const config: Linter.Config = {
     `plugin:prettier/recommended`,
   ],
   rules,
-  ignorePatterns: [`prettier.config.js`, `.eslintrc.cjs`, `build.mjs`, `bin.mjs`],
+  ignorePatterns: [`prettier.config.js`, `.eslintrc.cjs`],
 }
 
 export default config

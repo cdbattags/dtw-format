@@ -1,3 +1,3 @@
-import config from './lib/esm/prettier/index.js'
+import config from './lib/esm/src/prettier/index.js'
 
 export default config
