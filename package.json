@@ -1,6 +1,22 @@
 {
   "name": "@dtw/format",
-  "version": "0.0.13",
+  "version": "0.0.14",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdbattags/dtw-format.git"
+  },
+  "homepage": "https://github.com/cdbattags/dtw-format#readme",
+  "license": "MIT",
+  "keywords": [
+    "ESLint",
+    "Prettier",
+    "TypeScript",
+    "JavaScript",
+    "EditorConfig",
+    "scaffold",
+    "scaffolding"
+  ],
+  "os": ["darwin", "linux"],
   "type": "module",
   "files": [
     "/lib"
