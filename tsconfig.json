@@ -1,16 +1,5 @@
 {
   "extends": "./tsconfig.dtw.json",
-  "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "@/*": [
-        "./*",
-      ],
-      "~/*": [
-        "../*",
-      ],
-    },
-  },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -18,7 +7,5 @@
     "src/**/*.js",
     "src/**/*.mjs",
     "test/**/*.ts",
-    "bin/**/*.ts",
-    "build/**/*.ts",
   ],
 }

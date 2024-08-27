@@ -8,6 +8,7 @@
     "isolatedModules": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
+    "preserveSymlinks": true,
 
     /* Strictness */
     "alwaysStrict": true,
@@ -30,11 +31,23 @@
 
     /* Types */
     "typeRoots": [
-      "node_modules/@types",
+      "./node_modules/@types",
       "@types",
     ],
+
+    /* Paths */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": [
+        "./*",
+      ],
+      "~/*": [
+        "../*",
+      ],
+    },
   },
   "exclude": [
     "node_modules",
+    "lib",
   ],
 }

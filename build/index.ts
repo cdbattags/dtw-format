@@ -1,10 +1,9 @@
 import esbuild, { type BuildOptions } from 'esbuild'
 import { nodeExternalsPlugin } from 'esbuild-node-externals'
-import fg from 'fast-glob'
 import { $, chalk } from 'zx'
 
-const srcEntries = fg.sync([`src/**/*.[tj]s`])
-const binEntries = fg.sync([`bin/**/*.[tj]s`])
+const srcEntries = [`src/prettier-config/index.ts`, `src/index.ts`, `src/config.ts`]
+const binEntries = [`bin/index.ts`]
 
 const build = async ({
   format,
@@ -13,9 +12,10 @@ const build = async ({
   outbase,
   plugins,
   external,
+  tsconfig,
 }: Pick<
   BuildOptions,
-  `format` | `entryPoints` | `outdir` | `outbase` | `plugins` | `external`
+  `format` | `entryPoints` | `outdir` | `outbase` | `plugins` | `external` | `tsconfig`
 >) => {
   await esbuild.build({
     bundle: true,
@@ -28,6 +28,7 @@ const build = async ({
     format,
     plugins,
     external,
+    tsconfig,
   })
 }
 
@@ -36,12 +37,11 @@ try {
   console.log(chalk.green(`Deleted all content in lib`))
 
   // build ESM src entries
-  await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/esm`
+  await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/esm --project tsconfig.json`
   await build({
     format: `esm`,
     entryPoints: srcEntries,
     outdir: `lib/esm`,
-    outbase: `./`,
   })
     .then(() => {
       console.log(chalk.green(`ESM compilation successful`))
@@ -51,12 +51,11 @@ try {
     })
 
   // build CJS src entries
-  await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/cjs`
+  await $`npx tsc --declaration --emitDeclarationOnly --outDir lib/cjs --project tsconfig.json`
   await build({
     format: `cjs`,
     entryPoints: srcEntries,
     outdir: `lib/cjs`,
-    outbase: `./`,
   })
     .then(() => console.log(chalk.green(`CJS compilation successful`)))
     .catch((e: Error) => {
@@ -70,6 +69,7 @@ try {
     outdir: `lib/esm/bin`,
     plugins: [nodeExternalsPlugin()],
     external: [`zx`],
+    tsconfig: `bin/tsconfig.json`,
   })
     .then(() => console.log(chalk.green(`ESM bin compilation successful`)))
     .catch((e: Error) => {
@@ -85,7 +85,7 @@ try {
   await $`cp -r to-copy lib/.`
   await $`cp -r .vscode lib/to-copy/.`
   await $`cp .editorconfig lib/to-copy/.`
-  await $`cp tsconfig.json lib/to-copy/.`
+  console.log(chalk.green(`Copied to-copy to lib`))
 
   console.log(chalk.green(`Overall compilation successful`))
 } catch (error) {

@@ -1,5 +1,8 @@
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions & import('@trivago/prettier-plugin-sort-imports').PluginConfig} */
-const config = {
+import type { PluginConfig as PrettierPluginSortImportsOptions } from '@trivago/prettier-plugin-sort-imports'
+import type { Config } from 'prettier'
+import type { PluginOptions as PrettierPluginTailwindOptions } from 'prettier-plugin-tailwindcss'
+
+const config: Config & PrettierPluginTailwindOptions & PrettierPluginSortImportsOptions = {
   arrowParens: `always`,
   bracketSpacing: true,
   printWidth: 100,

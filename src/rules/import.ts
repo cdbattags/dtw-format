@@ -22,6 +22,8 @@ const rules: Linter.RulesRecord = {
 
   // handled by prettier plugin
   'import/order': `off`,
+
+  'import/no-unresolved': `error`,
 }
 
 export default rules

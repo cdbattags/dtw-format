@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { $, argv, chalk } from 'zx'
 
-import { PKG_ROOT } from '~/bin/constants'
+import PKG_ROOT from '~/bin/pkg-root'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 const { folder = `` } = argv
@@ -23,7 +23,9 @@ try {
 
   await $`curl -o ${folderToConfigure}/.gitignore --fail --show-error --silent --location https://raw.github.com/github/gitignore/master/Node.gitignore`
 
-  await $`cp -r ${PKG_ROOT}../to-copy/. ${folderToConfigure}/.`
+  await $`cp -r ${PKG_ROOT}/../to-copy/. ${folderToConfigure}/.`
+  await $`rm -rf ${folderToConfigure}/tsconfig.json`
+  await $`mv ${folderToConfigure}/template.tsconfig.json ${folderToConfigure}/tsconfig.json`
 
   console.log(chalk.green(`Finished configuring current folder`))
 } catch (error) {
