@@ -1,8 +1,8 @@
 # @dtw/format
 
-Going off of "[Supporting Dual Package for CJS and ESM in TypeScript Library](https://medium.com/ekino-france/supporting-dual-package-for-cjs-and-esm-in-typescript-library-b5feabac1357)".
+The purpose of this repository is to have a single source of truth for all JavaScript/TypeScript libraries I use.
 
-The purpose of this repository is to have a single source of truth for all JavaScript/TypeScript libraries I use for:
+These configs are very opinionated using the below frameworks:
 
 - [EditorConfig](https://editorconfig.org/)
 - [ESLint](https://eslint.org/)
@@ -10,20 +10,75 @@ The purpose of this repository is to have a single source of truth for all JavaS
 
 ## how to configure
 
-.eslintrc.cjs
+Install using:
 
-```ts
-const config = require('@dtw/format/cjs/config.js').default
+`npx @dtw/format --folder=<where-to-install>`
 
-module.exports = config
+For scaffolding the current folder, use:
+
+`npx @dtw/format --folder=.`
+
+So getting going looks like this for every new project:
+
+1. `mkdir test-package`
+2. `cd test-package`
+3. `git init`
+4. `npx @dtw/format --folder=.`
+
+The only dependency you should need to add yourself is `typescript` in `dependencies` of your `package.json`:
+
+```json
+{
+  "name": "test-package",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@dtw/format": "^<latest-version>",
+    "typescript": "^<latest-version>"
+  }
+}
 ```
 
-prettier.config.js
+This is needed in order to get the `.vscode/settings.json` to point to your package's typescript library:
 
-```ts
-import config from '@dtw/format/esm/prettier/index.js'
-
-export default config
+```json
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+}
 ```
+
+## updates to this library
+
+Updates to this library should be as simple as updating through `npm`, `pnpm`, `yarn`, `bun`, `etc`.
+
+I'll tackle the new ESLint configuration format in the future.
+
+## how to run your own TypeScript code
+
+I prefer to use `tsx`. An example `package.json` looks like:
+
+```json
+{
+  "name": "test-package",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@dtw/format": "^<latest-version>",
+    "tsx": "^<latest-version>",
+    "typescript": "^<latest-version>"
+  }
+}
+```
+
+## why did I make this library?
+
+Most of my new projects require this same scaffolding and they fall out of line with the latest updates if I let them sit too long. Other notable configs I care about are the `@/` and `~/` path aliases and the fact that I can separate them apart from my package imports for much better readability.
+
+Please open an issue with a proposed change if you'd like to debate any of these.
+
+😉 Happy TypeScript coding, folks!
 
 
