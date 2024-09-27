@@ -10,7 +10,7 @@ const rules: Linter.RulesRecord = {
   ],
 
   // make sure .tsx or .jsx if it has the syntax
-  'react/jsx-filename-extension': `error`,
+  'react/jsx-filename-extension': [`error`, { extensions: [`js`, `.jsx`, `.ts`, `.tsx`] }],
 
   // make sure props are on a new line when they're multiline
   'react/jsx-first-prop-new-line': [`error`, `multiline`],
